@@ -1,43 +1,67 @@
 import random
-import string
 
 # Función para generar la contraseña
-def generar_contrasena(longitud, incluir_numeros, incluir_simbolos):
+def generar_contrasena(longitud, mayusculas, minusculas, numeros, simbolos):
 
-    # Estructura de datos
-    caracteres = list(string.ascii_letters)
+    # Estructuras de datos
+    letras_mayusculas = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    letras_minusculas = list("abcdefghijklmnopqrstuvwxyz")
+    lista_numeros = list("0123456789")
+    lista_simbolos = list("!@#$%&*?")
+
+    caracteres = []
 
     # Condicionales
-    if incluir_numeros == "s":
-        caracteres += list(string.digits)
+    if mayusculas == "s":
+        caracteres = caracteres + letras_mayusculas
 
-    if incluir_simbolos == "s":
-        caracteres += list(string.punctuation)
+    if minusculas == "s":
+        caracteres = caracteres + letras_minusculas
+
+    if numeros == "s":
+        caracteres = caracteres + lista_numeros
+
+    if simbolos == "s":
+        caracteres = caracteres + lista_simbolos
+
+    # Validación
+    if len(caracteres) == 0:
+        return "Debe seleccionar al menos un tipo de carácter."
 
     contrasena = ""
 
     # Bucle
     for i in range(longitud):
-        contrasena += random.choice(caracteres)
+        contrasena = contrasena + random.choice(caracteres)
 
     return contrasena
 
 
 # Programa principal
-print("=== GENERADOR DE CONTRASEÑAS ===")
+print("===================================")
+print("   GENERADOR DE CONTRASEÑAS")
+print("===================================")
 
 # Manejo de datos
-longitud = int(input("¿Cuántos caracteres tendrá la contraseña? "))
+longitud = int(input("Ingrese la longitud de la contraseña: "))
 
 # Condicional
 if longitud <= 0:
-    print("Error: la longitud debe ser mayor a 0")
+    print("La longitud debe ser mayor que cero.")
 else:
-    incluir_numeros = input("¿Desea incluir números? (s/n): ").lower()
-    incluir_simbolos = input("¿Desea incluir símbolos? (s/n): ").lower()
+    mayusculas = input("¿Incluir letras mayúsculas? (s/n): ")
+    minusculas = input("¿Incluir letras minúsculas? (s/n): ")
+    numeros = input("¿Incluir números? (s/n): ")
+    simbolos = input("¿Incluir símbolos? (s/n): ")
 
     # Llamada a la función
-    contrasena = generar_contrasena(longitud, incluir_numeros, incluir_simbolos)
+    resultado = generar_contrasena(
+        longitud,
+        mayusculas,
+        minusculas,
+        numeros,
+        simbolos
+    )
 
     print("\nContraseña generada:")
-    print(contrasena)
+    print(resultado)
