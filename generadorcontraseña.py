@@ -1,34 +1,43 @@
 import random
 import string
 
-print("=== GENERADOR DE CONTRASEÑAS ===")
+# Función para generar la contraseña
+def generar_contrasena(longitud, incluir_numeros, incluir_simbolos):
 
-#Entrada del usuario
-longitud = int(input("¿Cuántos caracteres tendrá la contraseña? "))
+    # Estructura de datos
+    caracteres = list(string.ascii_letters)
 
-# ✔ ESTRUCTURA LÓGICA (condicionales)
-if longitud <= 0:
-    print("Error: la longitud debe ser mayor a 0")
-else:
-    usar_numeros = input("¿Desea incluir números? (s/n): ")
-    usar_simbolos = input("¿Desea incluir símbolos? (s/n): ")
+    # Condicionales
+    if incluir_numeros == "s":
+        caracteres += list(string.digits)
 
-    # Base de caracteres
-    caracteres = string
-
-    # ✔ ESTRUCTURA LÓGICA (condicionales)
-    if usar_numeros == "s":
-        caracteres += string
-
-    if usar_simbolos == "s":
-        caracteres += string
+    if incluir_simbolos == "s":
+        caracteres += list(string.punctuation)
 
     contrasena = ""
 
-    # ✔ ESTRUCTURA REPETITIVA (bucle)
+    # Bucle
     for i in range(longitud):
-        contrasena +=(caracteres)
+        contrasena += random.choice(caracteres)
 
-    # Resultado final
+    return contrasena
+
+
+# Programa principal
+print("=== GENERADOR DE CONTRASEÑAS ===")
+
+# Manejo de datos
+longitud = int(input("¿Cuántos caracteres tendrá la contraseña? "))
+
+# Condicional
+if longitud <= 0:
+    print("Error: la longitud debe ser mayor a 0")
+else:
+    incluir_numeros = input("¿Desea incluir números? (s/n): ").lower()
+    incluir_simbolos = input("¿Desea incluir símbolos? (s/n): ").lower()
+
+    # Llamada a la función
+    contrasena = generar_contrasena(longitud, incluir_numeros, incluir_simbolos)
+
     print("\nContraseña generada:")
     print(contrasena)
