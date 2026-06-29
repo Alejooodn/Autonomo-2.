@@ -1,4 +1,9 @@
+Fecha: 28/06/2026
 Tema: Desarrollo de un Generador de Contraseñas
+Objetivo
+
+Desarrollar un generador de contraseñas utilizando el lenguaje de programación Python, aplicando los conocimientos adquiridos en la asignatura, como la resolución de problemas, el manejo de datos, algoritmos, diagramas de flujo, estructuras condicionales, bucles, estructuras de datos y funciones, con el fin de fortalecer las habilidades de programación y comprender la importancia de crear contraseñas seguras para proteger la información.
+
 Introducción
 
 Hoy en día, la seguridad en internet es muy importante porque mucha gente utiliza plataformas digitales y almacena información personal en la red. Una de las mejores formas de protegerse es utilizar contraseñas seguras, ya que esto ayuda a evitar que personas no autorizadas accedan a nuestras cuentas y sistemas. Sin embargo, mucha gente elige contraseñas fáciles de adivinar, lo que aumenta el riesgo de sufrir ataques informáticos.
