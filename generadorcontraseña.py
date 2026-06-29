@@ -55,13 +55,7 @@ else:
     simbolos = input("¿Incluir símbolos? (s/n): ")
 
     # Llamada a la función
-    resultado = generar_contrasena(
-        longitud,
-        mayusculas,
-        minusculas,
-        numeros,
-        simbolos
-    )
+    resultado = generar_contrasena(longitud, mayusculas, minusculas, numeros, simbolos)
 
     print("\nContraseña generada:")
     print(resultado)
